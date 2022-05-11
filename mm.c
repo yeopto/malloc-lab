@@ -35,10 +35,6 @@ team_t team = {
     ""
 };
 
-/*
-    매크로
-*/
-
 /* 기본 단위인 word, double word, 새로 할당받는 힙의 크기 CHUNKSIZE를 정의한다 */
 #define WSIZE       4       /* Word and header/footer size (bytes) */
 #define DSIZE       8       /* Double word size (bytes) */
@@ -97,7 +93,6 @@ int mm_init(void) {
     PUT(heap_listp + (5 * WSIZE), PACK(0, 1));      // epliogue header
 
     free_listp = heap_listp + 2 * WSIZE; // free_listp를 탐색의 시작점으로 둔다. 
-
 
     /* 그 후 CHUNKSIZE만큼 힙을 확장해 초기 가용 블록을 생성한다. */
     if (extend_heap(CHUNKSIZE / WSIZE) == NULL) {
